@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "About CMS Ltd";
+}
+
+<div class="col-xs-12">
+    <h2>@ViewBag.Title.</h2>
+
+    <p>
+        Clear Machine Safety Our team have proven track records in all aspects of Machine Safety. We believe this gives us the ability to assure our customers and their operators that our solutions are practical and will enhance the use of the machinery and in some cases improve production, From specification of Safety Guards and Devices through to installation, Clear Machine Safety aim to maximise the many years of experience we have to make sure our customers are delighted with their decision to use us. We want our customers to return to us again & again, our commitment to provide value and quality is foremost in our thinking, customers want Clear guarantees that the products and services they pay for will add value and will be totally fit for purpose.
+    </p>
+
+    <p>
+        Clear Machine Safety Limited offers components, systems and advice for the safe design and use of machinery and equipment across many sectors of industry. Our main area of focus is machinery safeguarding that provide safe working conditions for operators and machines.
+    </p>
+
+    <p>
+        Our credentials:
+        <ul>
+            <li>Rockwell Automation</li>
+            <li>Standard Machine Guards Nelsa Brand</li>
+            <li>Allen Bradley Guardmaster Safety Switches</li>
+            <li>Procter Machine Guards</li>
+        </ul>
+
+    </p>
+
+</div>
+
+
+    @section scripts
+{
+        <script>
+
+            $(function () {
+                function stripTrailingSlash(str) {
+                    if (str.substr(-1) == '/') {
+                        return str.substr(0, str.length - 1);
+                    }
+                    return str;
+                }
+
+                var url = window.location.pathname;
+                var activePage = stripTrailingSlash(url);
+
+                var x = $('.nav li a').length;
+                console.log("nav length = " + x);
+
+                $('.nav li a').each(function () {
+                    var currentPage = stripTrailingSlash($(this).attr('href'));
+
+                    if (activePage == currentPage) {
+                        $(this).parent().addClass('active');
+                    }
+                });
+            });
+        </script>
+    }

@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - CMS Limited</title>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*@Html.ActionLink("CMS Ltd", "Index", "Home", null, new { @class = "navbar-brand" })*@
+                @*@Html.ActionLink("CMS", "Index", "Home", null, new { @class = "navbar-brand cms-logo-large" })*@
+                <a href="@Url.Action("Index", "Home")">
+                    <div class="navbar-brand">
+                        <span class="cms-logo-large">CMS</span><br />
+                        <span class="cms-logo-small">&nbsp;clear machine safety</span>
+                    </div>
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+
+                <ul class="nav navbar-nav">
+                    <li id="fat-menu" class="dropdown">
+                        <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">Machine Guards<b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+                            @*                            <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Drill Guards</a></li>*@
+                            <li role="presentation">@Html.ActionLink("Drill", "Drill", "MachineGuards")</li>
+                            <li role="presentation">@Html.ActionLink("DC Brakes", "DCBrakes", "MachineGuards")</li>
+                            <li role="presentation">@Html.ActionLink("Grinder", "Grinder", "MachineGuards")</li>
+                            <li role="presentation">@Html.ActionLink("Lathe", "Lathe", "MachineGuards")</li>
+                            <li role="presentation">@Html.ActionLink("Mill", "Mill", "MachineGuards")</li>
+                            <li role="presentation">@Html.ActionLink("Bespoke or Custom", "Bespoke", "MachineGuards")</li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation">@Html.ActionLink("General Information", "Index", "MachineGuards")</li>
+                        </ul>
+                    </li>
+                    <li id="sensing-menu" class="dropdown">
+                        <a href="#" id="sensing-drop" role="button" class="dropdown-toggle" data-toggle="dropdown">Presence Sensing<b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="sensing-drop">
+                            <li role="presentation">@Html.ActionLink("Sensitive Edges", "SensitiveEdges", "SensingDevices")</li>
+                            <li role="presentation">@Html.ActionLink("Safety Mats", "SafetyMats", "SensingDevices")</li>
+                            <li role="presentation">@Html.ActionLink("Light Curtains", "LightCurtains", "SensingDevices")</li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation">@Html.ActionLink("General Information", "Index", "SensingDevices")</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <div class="row">
+            @RenderBody()
+        </div>
+
+
+        <hr />
+        <footer>
+            <div class="col-sm-6"><small><span class="glyphicon glyphicon-envelope"></span> sales@clearmachinesafety.co.uk</small></div>
+            <div class="col-sm-6"><div class="pull-right"><small>&copy; @DateTime.Now.Year - CMS Limited</small></div></div>
+            <div class="col-sm-6"><small><span class="glyphicon glyphicon-phone-alt"></span> 01942 896540</small></div>
+            <div class="col-sm-6"><div class="pull-right"><small>Registered Company : 06932939</small></div></div>
+            <div class="col-sm-6"><small><span class="glyphicon glyphicon-phone"></span>07540635441</small></div>
+            <div class="col-sm-6"><div class="pull-right"><small>VAT Registered : 974 037995</small></div></div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
